@@ -4,3 +4,5 @@
 
 链接：https://pan.baidu.com/s/1_XpLfhpz64lf6XJwmiCEKQ 
 提取码：ahde
+
+## 下载后解压，将data文件夹放于本文件夹下
