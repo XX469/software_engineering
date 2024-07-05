@@ -6,7 +6,7 @@ import logging
 import os
 
 class Logger:
-    def __init__(self, log_file = 'distribute_monitor_system.log',format = '%(asctime)s - %(ipaddr)s - %(levelname)s - %(message)s', dateformat='%Y/%m/%d %H:%M:%S', level = logging.DEBUG) -> None:
+    def __init__(self, log_file = 'distribute_monitor_system.log',format = '%(asctime)s - %(ipaddr)s - %(levelname)s - %(message)s', dateformat='%Y/%m/%d %H:%M:%S', level = logging.DEBUG , mode = 'w') -> None:
         self.logger = logging.getLogger('distribute monitor')
         formatter = logging.Formatter(fmt=format, datefmt= dateformat)
         self.logger.setLevel(level=level)
@@ -16,8 +16,8 @@ class Logger:
             self.log_filepath = 'stdout'
             self.handler = logging.StreamHandler()
         else:
-            self.log_filepath = os.path.join(os.path.abspath(os.path.curdir), log_file)
-            self.handler = logging.FileHandler(filename=self.log_filepath, mode='w')
+            self.log_filepath = os.path.join(os.path.abspath(os.path.dirname(__file__)), log_file)
+            self.handler = logging.FileHandler(filename=self.log_filepath, mode=mode)
             
         self.handler.setFormatter(formatter)
         self.logger.addHandler(self.handler)

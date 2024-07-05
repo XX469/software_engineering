@@ -2,7 +2,6 @@ import socket
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.abspath('.')))
-from distribute_monitor.logger import LOGGER
 
 def get_host_ip():
     """
@@ -35,10 +34,9 @@ class UDPSender:
     def send(self, data, ip, port):
         if self.is_local:
             if ip != UDPSender.loop_ip:
-                LOGGER.warning('[failure] loop ip send data to non-loop ip')
                 return
-        ret = self.socket.sendto(data, (ip, port))
-        print('send ret = {}'.format(ret)) 
+        ret = self.socket.sendto(data, (ip, int(port)))
+        return ret
     
     def receive(self):
         while(True):
@@ -48,8 +46,6 @@ class UDPSender:
                 continue
             else:
                 break
-        if len(data) == 1024:
-            LOGGER.warning('[warn] receive data might be bigger than 1024B')
         return data, from_addr
     
     def set_timeout(self, timeout):
