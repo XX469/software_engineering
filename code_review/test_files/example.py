@@ -11,8 +11,6 @@ def special_case(value):
 
 
 unused_variable = "This variable is never used."
-
-
 global_var = "I'm a global variable that doesn't need to be."
 
 
