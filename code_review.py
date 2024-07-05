@@ -3,8 +3,7 @@ from openai import OpenAI
 
 client = OpenAI(
     # defaults to os.environ.get("OPENAI_API_KEY")
-    # 免费api_key获取地址及使用方法:https://github.com/chatanywhere/GPT_API_free?tab=readme-ov-file
-    api_key="sk-e0UY1pZjUkUQN6iR2MvYxFisSFBps2dh3KQ6uTaoyolXw5lc",
+    api_key="your openai api",
     base_url="https://api.chatanywhere.tech/v1"
 )
 
